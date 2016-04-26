@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
+using CsQuery;
 
 namespace googledownloader
 {
@@ -17,6 +19,8 @@ namespace googledownloader
         public WebClient web;
         public string hookfile;
         public int pos;
+        private IDomObject[] thumbList;
+        private int domcounter;
         public Form1()
         {
             web = new WebClient();
@@ -39,7 +43,7 @@ namespace googledownloader
         }
         // TODO - replace this shitty heuristic method with 
         // a regex
-        String getnextfile(String file, ref int cpos)
+        String getnextfileOld(String file, ref int cpos)
         {
             String lookfor = "/src/";
             int lklen = lookfor.Length;
@@ -49,6 +53,21 @@ namespace googledownloader
             int end = file.IndexOf("\"", inx);
             cpos = end+1;
             return "http://"+file.Substring(start+2, end-start-2);
+        }
+        String getnextfile(String file, ref int cpos)
+        {
+            if (thumbList == null)
+            {
+                thumbList = CsQuery.CQ.Create(file).Find(".fileThumb").ToArray();
+                domcounter = 0;
+            }
+            var ret = "";
+            if ( domcounter < thumbList.Length )
+            {
+                ret = "http:" + thumbList[domcounter].GetAttribute("href");
+                domcounter++;
+            }
+            return ret;
         }
         void web_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {

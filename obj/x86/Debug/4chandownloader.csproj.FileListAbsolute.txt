@@ -1,0 +1,11 @@
+C:\projects\4chandownloader\bin\Debug\4chandownloader.exe
+C:\projects\4chandownloader\bin\Debug\4chandownloader.pdb
+C:\projects\4chandownloader\obj\x86\Debug\googledownloader.Form1.resources
+C:\projects\4chandownloader\obj\x86\Debug\_4chandownloader.Properties.Resources.resources
+C:\projects\4chandownloader\obj\x86\Debug\4chandownloader.csproj.GenerateResource.Cache
+C:\projects\4chandownloader\obj\x86\Debug\4chandownloader.exe
+C:\projects\4chandownloader\obj\x86\Debug\4chandownloader.pdb
+C:\projects\4chandownloader\obj\x86\Debug\4chandownloader.csprojResolveAssemblyReference.cache
+C:\projects\4chandownloader\bin\Debug\4chandownloader.exe.config
+C:\projects\4chandownloader\bin\Debug\CsQuery.dll
+C:\projects\4chandownloader\bin\Debug\CsQuery.xml
